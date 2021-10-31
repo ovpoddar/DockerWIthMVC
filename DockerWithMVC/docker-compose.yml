@@ -1,0 +1,16 @@
+﻿version: '3'
+services: 
+  dockerwithmvc:
+    build: .
+    container_name: "dockerwithmvc"
+    ports:
+    - "8000:80"
+    - "8001:443"
+    environment:
+      ASPNETCORE_URLS: "http://+8000;https://+8001"
+      ASPNETCORE_HTTPS_PORT: "8001"
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /https/DockerWithMVC.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Password: "pa55w0rd!"
+    volumes:
+      - ${USERPROFILE}/.aspnet/https:/https/
