@@ -18,7 +18,7 @@ docker build -t dockerwithmvc:vscode .
 
 After creation, To deploy the image use this Commend.  
 
-> docker run -it --rm -p (preferable port to run):80/tcp (name for the container):(version). 
+> docker run -it --rm -p (preferable port to run):80/tcp (name for the container):(version).  
 **Sample:**  
 ```console
 docker run -it --rm -p 5000:80/tcp dockerwithmvc:vscode
