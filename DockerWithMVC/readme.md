@@ -13,7 +13,7 @@ Simplest way to build the docker image use this Commend.
 
 **Sample:**  
 ```console
-docker build -t {some name} .
+docker build -t dockerwithmvc .
 ```
 
 or
