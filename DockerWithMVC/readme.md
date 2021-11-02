@@ -23,16 +23,38 @@ or
 docker-compose build
 ```
 
-to generate the certificate
+## Configure https:
 
+- The first step is to remove an existing self-signed certificate if there is one.  
+
+**Sample:**  
+```console
 dotnet dev-certs https --clean
+```  
 
-dotnet dev-certs https -ep ${HOME}/.aspnet/https/DockerWithMVC.pfx -p pa55w0rd!     
+- To verify for any existing certificate   
 
+**Sample:**  
+```console
+dotnet dev-certs https --check --verbose
+```  
+
+- Now we’ll create a new certificate (with a password of your choosing) and check that the certificate was created successfully.
+
+> dotnet dev-certs https -ep ${HOME}/.aspnet/https/{any name}.pfx -p {your_password_here}  
+> dotnet dev-certs https --trust  
+> dotnet dev-certs https --check --verbose  
+
+**Sample:**  
+```console
+dotnet dev-certs https -ep ${HOME}/.aspnet/https/dockerwithmvc.pfx -p pa55w0rd!.
 dotnet dev-certs https --trust
+dotnet dev-certs https --check --verbose
+```  
 
 
-To deploy the app with https use this commend  
+
+## To deploy the app with https use this commend:  
 
 **Sample:**  
 ```console
