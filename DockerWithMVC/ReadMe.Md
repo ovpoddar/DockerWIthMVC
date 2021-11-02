@@ -56,10 +56,10 @@ dotnet dev-certs https --check --verbose
 ```  
 
 To deploy the app with https use this commend  
-> docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_Kestrel__Certificates__Default__Password={password which set earlier} -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/{name which set earlier}.pfx -v ${HOME}/.aspnet/https:/https/ dockerwithmvc:vscode  
+> docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_Kestrel__Certificates__Default__Password={password which set earlier} -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/{name which set earlier}.pfx -v ${HOME}/.aspnet/https:/https/ {name that you set during the build}  
 
 
 **Sample:**  
 ```console
-docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_Kestrel__Certificates__Default__Password={password which set earlier} -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/{name which set earlier}.pfx -v ${HOME}/.aspnet/https:/https/ dockerwithmvc:vscode
+docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_Kestrel__Certificates__Default__Password=pa55w0rd!. -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/dockerwithmvc.pfx -v ${HOME}/.aspnet/https:/https/ dockerwithmvc:vscode
 ```
