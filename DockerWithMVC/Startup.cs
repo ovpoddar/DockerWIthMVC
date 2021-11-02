@@ -1,13 +1,16 @@
+using DockerWithMVC.Models;
 using DockerWithMVC.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace DockerWithMVC
@@ -25,7 +28,10 @@ namespace DockerWithMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IPersonRepository, InMemoryCollectionRepository>();
+            // services.AddTransient<IPersonRepository, InMemoryCollectionRepository>();
+            services.AddTransient<IPersonRepository, SqlRepository>();
+            services.AddDbContextPool<ApplcaitionDBContext>(option => option.UseSqlServer(Configuration.GetConnectionString("database"), sqlOptions => sqlOptions.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name)));
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
