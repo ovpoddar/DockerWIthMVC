@@ -29,7 +29,7 @@ namespace DockerWithMVC
         {
             services.AddControllersWithViews();
             // services.AddTransient<IPersonRepository, InMemoryCollectionRepository>();
-            services.AddTransient<IPersonRepository, SqlRepository>();
+            services.AddScoped<IPersonRepository, SqlRepository>();
             services.AddDbContextPool<ApplcaitionDBContext>(option => option.UseSqlServer(Configuration.GetConnectionString("database"), sqlOptions => sqlOptions.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name)));
         
         }
