@@ -44,9 +44,9 @@ dotnet dev-certs https --check --verbose
 
 - Now we’ll create a new certificate (with a password of your choosing) and check that the certificate was created successfully.
 
-> dotnet dev-certs https -ep ${HOME}/.aspnet/https/{any name}.pfx -p {your_password_here}
-> dotnet dev-certs https --trust
-> dotnet dev-certs https --check --verbose
+> dotnet dev-certs https -ep ${HOME}/.aspnet/https/{any name}.pfx -p {your_password_here}  
+> dotnet dev-certs https --trust  
+> dotnet dev-certs https --check --verbose  
 
 **Sample:**  
 ```console
