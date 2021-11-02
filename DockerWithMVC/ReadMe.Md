@@ -1,4 +1,10 @@
-To build the image
+# How TO DEPLOY THE APPLICATION WITH DOCKER
+
+Download [Docker](https://www.docker.com/get-started) application from it's official website.  
+Create a account on [Docker hub](https://hub.docker.com/).  
+open terminal or Commend prompt on the Project's folder.  
+
+## build the image inside the host computer:
 
 docker build -t dockerwithmvc:vscode .
 
